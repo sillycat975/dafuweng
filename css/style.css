@@ -1,0 +1,261 @@
+/* 大富翁 MVP 样式 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  background: #f0f2f5;
+  color: #333;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 16px;
+  color: #2c3e50;
+}
+
+#round {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #e67e22;
+  margin-bottom: 16px;
+}
+
+.container {
+  display: flex;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* 棋盘 */
+#board {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 4px;
+  width: 560px;
+  height: 560px;
+  background: #fff;
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cell {
+  position: relative;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fafafa;
+  font-size: 12px;
+  min-height: 0;
+}
+
+.cell-start {
+  background: #fff3cd;
+  border-color: #ffc107;
+}
+
+.cell-empty {
+  background: #e8f5e9;
+  border-color: #81c784;
+}
+
+.cell-property {
+  background: #fff;
+  padding-top: 0;
+}
+
+.cell-color-bar {
+  height: 8px;
+  margin: 0 -6px 4px -6px;
+  border-radius: 4px 4px 0 0;
+}
+
+.cell.owned {
+  border-width: 3px;
+}
+
+.cell-name {
+  font-weight: bold;
+  line-height: 1.2;
+  word-break: break-all;
+}
+
+.cell-price {
+  color: #e67e22;
+  font-size: 11px;
+}
+
+.cell-houses {
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+/* 玩家棋子 */
+.token {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* 侧栏 */
+.sidebar {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#players {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.player-panel {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #ccc;
+}
+
+.player-panel.active {
+  border-left-color: #e67e22;
+  background: #fff8f0;
+}
+
+.player-panel.bankrupt {
+  opacity: 0.5;
+}
+
+.player-name {
+  font-weight: bold;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.player-money {
+  font-size: 20px;
+  color: #27ae60;
+  font-weight: bold;
+  margin: 4px 0;
+}
+
+.player-props {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.bankrupt-tag {
+  margin-top: 6px;
+  color: #c0392b;
+  font-weight: bold;
+}
+
+/* 操作区 */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+button {
+  padding: 10px 18px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+#btn-roll {
+  background: #3498db;
+  color: #fff;
+}
+
+#btn-roll:hover:not(:disabled) {
+  background: #2980b9;
+}
+
+#btn-buy {
+  background: #27ae60;
+  color: #fff;
+}
+
+#btn-buy:hover:not(:disabled) {
+  background: #229954;
+}
+
+#btn-build {
+  background: #9b59b6;
+  color: #fff;
+}
+
+#btn-build:hover:not(:disabled) {
+  background: #8e44ad;
+}
+
+#btn-end {
+  background: #95a5a6;
+  color: #fff;
+}
+
+#btn-end:hover:not(:disabled) {
+  background: #7f8c8d;
+}
+
+#btn-restart {
+  background: #e74c3c;
+  color: #fff;
+}
+
+#btn-restart:hover {
+  background: #c0392b;
+}
+
+/* 消息区 */
+#message {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  min-height: 48px;
+  font-size: 14px;
+  line-height: 1.5;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}

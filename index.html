@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大富翁 MVP</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>大富翁</h1>
+  <div id="round">第 1 回合</div>
+
+  <div class="container">
+    <div id="board"></div>
+
+    <div class="sidebar">
+      <div id="players"></div>
+
+      <div class="actions">
+        <button id="btn-roll">掷骰</button>
+        <button id="btn-buy" style="display:none;">购买</button>
+        <button id="btn-build" style="display:none;">建房</button>
+        <button id="btn-end">结束回合</button>
+        <button id="btn-restart">重新开始</button>
+      </div>
+
+      <div id="message"></div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/board.js"></script>
+  <script src="js/dice.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>
